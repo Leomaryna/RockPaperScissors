@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function  getComputerChoice
+        function getComputerChoice() {
+        // 1) declare an array of options
+            const array = ["rock", "paper", "scissors"]
+        // 2) get a number between 0 and 2 randomly choose an array element
+            let i = Math.floor(Math.random()* 3);
+        // 3) return an array element
+            return array[i];
+        }
+        
+        let computerChoice = getComputerChoice();
+        //function playRound (playerSelection, computerSelection)
+        function playRound(playerSelection, computerSelection) {
+        // change playerSelection to Lowercase
+            let player = playerSelection.toLowerCase();
+        // if player paper, computer paper OR rock rock OR scissors scissors => It is a tie + return tie
+            if (player === computerSelection) {
+                console.log("It is a tie");
+                return result = "tie";
+            }
+        //if player paper, computer rock => You win! Paper beats rock! + return win
+            else if (player === "paper" && computerSelection === "rock") {
+                console.log("You win! Paper beats rock");
+                return result = "win";
+            }
+        // if player paper, computer scissors => You lose! Scissors beat paper! + return -1 for player and 1 for computer
+            else if (player === "paper" && computerSelection === "scissors") {
+                console.log("You lose! Scissors beat paper!");
+                return result = "lose";
+            }
+        // if player rock, computer paper => You lose! Paper beats rock! + return -1 for player and 1 for computer
+            else if (player === "rock" && computerSelection === "paper") {
+                console.log("You lose! Paper beats rock!");
+                return result = "lose";
+            }
+        // if player rock, computer scissors => You win! Rock beats scissors! + return 1 for player -1 for computer
+            else if (player === "rock" && computerSelection === "scissors") {
+                console.log("You win! Rock beats scissors!");
+                return result = "win";
+            }
+        // if player scissors, computer paper => You win! Scissors beat paper! + return 1 for player -1 for computer
+            else if (player === "scissors" && computerSelection === "paper") {
+                console.log("You win! Scissors beat paper!");
+                return result = "win";
+            }
+        // if player scissors, computer rock => You lose! Rock beats scissors! + return -1 for player and 1 for computer
+            else if (player === "scissors" && computerSelection === "rock") {
+                console.log("You lose! Rock beats scissors!");
+                return result = "lose";
+            }
+        }
+
+        
+        // function game()
+        function game() {
+        // loop for 5
+            let countWin = 0;
+            let countLose = 0;
+            for (let j = 0; j < 5; j++) {
+        // playerChoice = prompt (Enter rock, paper or scissors)
+                let playerChoice = prompt("Enter rock, paper or  scissors");
+                if (playerChoice.toLowerCase() === "rock" || playerChoice.toLowerCase() === "paper" || playerChoice.toLowerCase() === "scissors") {
+        // roundResult = playRound()
+                    let roundResult = playRound(playerChoice, computerChoice);
+        // if roundResult is win => countWin++
+                    if (roundResult === "win") {
+                        countWin++;
+                    }
+        // else if roundResult is lose => countLose++
+                    else if (roundResult === "lose") {
+                        countLose++;
+                    }
+        // finish loop.
+    
+                }else{
+                    playerChoice = prompt("Mistake! Please enter rock, paper or scissors");
+                }
+            }
+        //if countWin > countLose => You won the game
+            if (countWin > countLose) {
+                console.log("Absolute victory");
+            }
+        // if countWin < countLose => You lost the game
+            else if (countWin < countLose) {
+                console.log ("You've lost the game");
+            }
+        // else => It is a tie
+            else {
+                console.log("It is a tie");
+            }
+        }
+
+        game();
+
+    </script>
+
+
+</body>
+</html>
