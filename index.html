@@ -61,46 +61,16 @@
         }
 
         
-        // function game()
-        function game() {
-        // loop for 5
-            let countWin = 0;
-            let countLose = 0;
-            for (let j = 0; j < 5; j++) {
-        // playerChoice = prompt (Enter rock, paper or scissors)
-                let playerChoice = prompt("Enter rock, paper or  scissors");
-                if (playerChoice.toLowerCase() === "rock" || playerChoice.toLowerCase() === "paper" || playerChoice.toLowerCase() === "scissors") {
-        // roundResult = playRound()
-                    let roundResult = playRound(playerChoice, computerChoice);
-        // if roundResult is win => countWin++
-                    if (roundResult === "win") {
-                        countWin++;
-                    }
-        // else if roundResult is lose => countLose++
-                    else if (roundResult === "lose") {
-                        countLose++;
-                    }
-        // finish loop.
-    
-                }else{
-                    playerChoice = prompt("Mistake! Please enter rock, paper or scissors");
-                }
+        function playerChoice() {
+            let playerChoice;
+            do {
+                playerChoice = prompt("Choose rock, paper or scissors");
             }
-        //if countWin > countLose => You won the game
-            if (countWin > countLose) {
-                console.log("Absolute victory");
-            }
-        // if countWin < countLose => You lost the game
-            else if (countWin < countLose) {
-                console.log ("You've lost the game");
-            }
-        // else => It is a tie
-            else {
-                console.log("It is a tie");
-            }
+            while (playerChoice.toLowerCase() !== "rock" && playerChoice.toLowerCase() !== "paper" && playerChoice.toLowerCase() !== "scissors");
+            return playerChoice;
         }
-
-        game();
+        console.log(playerChoice());
+    
 
     </script>
 
